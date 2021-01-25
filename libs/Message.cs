@@ -5,13 +5,8 @@ using TwitchLib.Client.Models;
 
 namespace TwitchUNO.libs
 {
-    interface IMessage
-    {
-        static extern string GetMessageBody(ChatMessage str);
-        static extern string GetMessageAuthor(ChatMessage str);
-    }
 
-    class Message : IMessage
+    class Message
     {
         public static string GetMessageAuthor(ChatMessage str)
         {
@@ -21,6 +16,18 @@ namespace TwitchUNO.libs
         public static string GetMessageBody(ChatMessage str)
         {
             return str.Username;
+        }
+
+        public static bool IsValidCommand(string msg)
+        {
+            for(int i = 0; i < msg.Length; i++)
+            {
+                if(i == 0 && msg[i] == '!')
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
