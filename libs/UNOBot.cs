@@ -10,6 +10,14 @@ using TwitchLib.Communication.Models;
 
 namespace TwitchUNO.libs
 {
+    struct TwitchUser
+    {
+        string __username;
+
+        public string GetName() { return this.__username; }
+        public void SetName(string n) { this.__username = n; }
+    }
+
     class UNOBot
     {
         TwitchClient __client;
